@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Event Booking App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login-page">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register-page">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reset-password-page">Reset Password</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav><br>
+<div class="container">
+    <h1 class="my-5">Registration Page</h1>
+    <form>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input required minlength="3" [(ngModel)]="username" type="username" class="form-control" id="username" name="username">
+          <!-- <div class="alert alert-danger" *ngIf="username.touched && !username.valid" >
+            <div *ngIf="username.errors?.required">username required</div>
+            <div *ngIf="username.errors?.minlength">username must be {{ username.errors?.minlength.requiredLength }} long</div>
+            </div> -->
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" required [(ngModel)]="email" email=true class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
+            <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid" >
+              <div *ngIf="email.errors?.required">Email required</div>
+              <div *ngIf="email.errors?.email">Not a valid email</div>
+              </div> -->
+          </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" required minlength="8" [(ngModel)]="password" class="form-control" id="password" name="password">
+            <div *ngIf="error === true">
+              <div class="alert alert-danger" >
+                  Field is required.
+            </div>
+            <!-- <div *ngIf="password.errors?.required">password required</div>
+            <div *ngIf="password.errors?.minlength">password must be {{ password.errors?.minlength.requiredLength }} long</div> -->
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember</label>
+        </div>
+        <button (click)="postData()" type="submit" class="btn btn-primary" style="background:brown; border-color: inherit;">Register</button>
+      </form>
+</div>

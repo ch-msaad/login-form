@@ -1,0 +1,82 @@
+<ng-container *ngIf="products.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <!-- <th>Sr.No</th> -->
+                            <th>Event Title</th>
+                            <th>Event Description</th>
+                            <th>Event Venue</th>
+                            <!-- <th>Ticket ID</th> -->
+                            <!-- <th>Category ID</th> -->
+                            <th>Ticket Category</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <!-- <th>Event ID</th> -->
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of products; let i = index">
+                        <tr>
+                           
+                                <!-- <td>{{i+1}}</td> -->
+                                <td>{{item.title}}</td>
+                                <td>{{item.desc}}</td>
+                                <td>{{item.venue}}</td>
+                                <!-- <td>{{item.id}}</td> -->
+                                <!-- <td>{{item.Category_ID}}</td> -->
+                                <!-- <td><img style="width: 120px;" src="{{item.image}}" alt=""></td> -->
+                                <td>{{item.Category_Name}}</td>
+                                <td>{{item.date | date:'dd/MM/yyyy'}}</td>
+                                <td>{{item.date | date:'hh:mm a'}}</td>
+                                <!-- <th style="width: 12%;">{{item.Event_ID}}</th> -->
+                                <td>{{item.Quantity}}</td>
+                                <td>{{item.price}}</td>
+                                <td>
+                                    <button (click)="removeCartItem(i)" class="btn btn-danger">Remove</button>
+                                </td>
+                          
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="removeAllCart()" class="btn btn-danger">Empty Cart</button></td>
+                            <td><button routerLink="/events" class="btn btn-primary">Shop More</button></td>
+                            <td><button class="btn btn-success" routerLink="/checkout">Checkout</button></td>
+                             <td><strong>Grand Total : ${{grandTotal}}</strong></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="removeAllCart()" class="btn btn-danger">Empty Cart</button></td>
+                            <td><button routerLink="/events" class="btn btn-primary">Shop More</button></td>
+                            <td><button class="btn btn-success" routerLink="/checkout">Checkout</button></td>
+                            <td><strong>Grand Total : Rs {{grandTotal}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title">My Cart</h2>
+        </div>
+        <div class="center">
+            <img src="../../../assets/emptycart.jpg" alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <button routerLink="/events" class="btn btn-primary">Shop Now</button>
+        </div>
+    </div>
+</ng-container>

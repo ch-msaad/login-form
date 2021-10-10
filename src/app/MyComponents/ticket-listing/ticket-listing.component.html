@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Tickets List</h2> <br>
+  <div *ngIf="this.tickets.length===0; else elseBlock">No ticket available.</div>
+  <ng-template #elseBlock>
+        <ul *ngFor="let ticket of tickets">
+            <!-- <ul>
+               <select [(ngModel)]="ticket.category">
+                 <option *ngFor="let t of tickets" [ngValue]="t">{{t.category}}</option>
+               </select>
+            </ul> -->
+                <!-- <ul><button type="button" class="btn btn-success" (onClick)="ticketcat(ticket.category)>Ticket Details</button></ul><br> -->
+                <div class="card" style="width: 18rem;" (click)="ticketcat(ticket.Category_ID, ticket.Event_ID)">
+                    <img src="../../../assets/ticket.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">Category ID: {{ticket.Category_ID}}</h5> -->
+                    <!-- <ul>    Event ID: {{ticket.Event_ID}}</ul> -->
+                    <ul>    Category Name: {{ticket.Category_Name}}</ul>
+                    <ul>    In Stock: {{ticket.Quantity}}</ul>
+                    <ul>    Price: {{ticket.price}}</ul><br>
+                    <ul><button class="btn btn-primary" (click)="ticketcat(ticket.Category_ID, ticket.Event_ID)">Ticket Details</button></ul>
+                  </div> 
+                </div><br>
+        </ul>
+        
+        <!-- <app-ticket-details></app-ticket-details> -->
+  </ng-template>
+  </div>
+  

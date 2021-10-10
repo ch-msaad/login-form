@@ -1,0 +1,52 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Add Ticket</h1>
+    <form>
+        <!-- <div class="mb-3">
+          <label for="Event_ID" class="form-label">Event_ID</label>
+          <input required minlength="3" [(ngModel)]="Event_ID" type="Event_ID" class="form-control" id="Event_ID" name="Event_ID">
+        </div> -->
+        <div>
+          <div *ngIf="error === true">
+            <div class="alert alert-danger" >
+                Field is required.
+          </div>
+          </div>
+          <label>Event ID</label>
+          <div>
+              <select [(ngModel)]="Event_ID" name="Event_ID">
+                  <option *ngFor="let event of events" value="{{event.sno}}">{{event.title}}</option>
+              </select>
+          </div>
+      </div><br>
+        <!-- <div class="mb-3">
+            <label for="Category_ID" class="form-label">Category_ID</label>
+            <input type="Category_ID" required [(ngModel)]="Category_ID" class="form-control" id="Category_ID" name="Category_ID">
+          </div> -->
+          <div>
+            <label>Category</label>
+            <div>
+                <select [(ngModel)]="Category_ID" name="Category_ID">
+                    <option *ngFor="let cat of ticketcat" value="{{cat.Category_ID}}">{{cat.Category_Name}}</option>
+                </select>
+            </div>
+        </div><br>
+        <!-- <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <input type="category" required minlength="8" [(ngModel)]="category" class="form-control" id="category" name="category">
+        </div> -->
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="price" required [(ngModel)]="price" class="form-control" id="price" name="price">
+          </div>
+        <div class="mb-3">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input type="number" required [(ngModel)]="Quantity" class="form-control" id="Quantity" name="Quantity">
+          </div>
+        <button (click)="postData()" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Add Ticket</button>
+      </form>
+</div>
+ 

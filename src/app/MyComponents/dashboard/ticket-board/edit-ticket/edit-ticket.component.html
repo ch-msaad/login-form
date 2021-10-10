@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Update Ticket</h1>
+    <form *ngFor="let ticket of tickets">
+        <!-- <div class="mb-3">
+          <label for="Event_ID" class="form-label">Event ID</label>
+          <input required minlength="3" [(ngModel)]="Event_ID" type="Event_ID" class="form-control" id="Event_ID" name="Event_ID" placeholder={{ticket.Event_ID}}>
+        </div> -->
+        <label>Event ID</label>
+        <div>
+            <select [(ngModel)]="Event_ID" name="Event_ID">
+                <option *ngFor="let event of events" value="{{event.sno}}">{{event.title}}</option>
+            </select>
+        </div>
+        <!-- <div class="mb-3">
+            <label for="Category_ID" class="form-label">Category ID</label>
+            <input type="Category_ID" required [(ngModel)]="Category_ID" class="form-control" id="Category_ID" name="Category_ID" placeholder={{ticket.Category_ID}}>
+          </div> -->
+          <label>Category</label>
+            <div>
+                <select [(ngModel)]="Category_ID" name="Category_ID">
+                    <option *ngFor="let cat of ticketcat" value="{{cat.Category_ID}}">{{cat.Category_Name}}</option>
+                </select>
+            </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="price" required [(ngModel)]="price" class="form-control" id="price" name="price" placeholder={{ticket.price}}>
+          </div>
+          <div class="mb-3">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input type="Quantity" required minlength="8" [(ngModel)]="Quantity" class="form-control" id="Quantity" name="Quantity" placeholder={{ticket.Quantity}}>
+          </div>
+        <button (click)="postData(ticket.id)" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Update Ticket</button>
+      </form>
+</div>

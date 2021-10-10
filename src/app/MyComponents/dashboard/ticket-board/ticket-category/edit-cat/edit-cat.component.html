@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Update Ticket Category</h1>
+    <form *ngFor="let cat of ticketcat">
+        <div class="mb-3">
+            <label for="Category_ID" class="form-label">Category ID</label>
+            <input type="Category_ID" required [(ngModel)]="Category_ID" class="form-control" id="Category_ID" name="Category_ID" placeholder={{cat.Category_ID}} readonly>
+          </div>
+        <div class="mb-3">
+          <label for="Category_Name" class="form-label">Category Name</label>
+          <input type="Category_Name" required minlength="8" [(ngModel)]="Category_Name" class="form-control" id="Category_Name" name="Category_Name" placeholder={{cat.Category_Name}}>
+        </div>
+        <button (click)="postData(cat.Category_ID)" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Update Ticket Category</button>
+      </form>
+</div>

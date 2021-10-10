@@ -1,0 +1,22 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Update User</h1>
+    <form *ngFor="let user of users">
+        <div class="mb-3">
+          <label for="Username" class="form-label">Username</label>
+          <input required minlength="3" [(ngModel)]="Username" type="Username" class="form-control" id="Username" name="Username" placeholder={{user.Username}}>
+        </div>
+        <div class="mb-3">
+          <label for="Email" class="form-label">Email</label>
+          <input type="Email" required minlength="8" [(ngModel)]="Email" class="form-control" id="Email" name="Email" placeholder={{user.Email}}>
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="Password" required [(ngModel)]="Password" class="form-control" id="Password" name="Password" placeholder=********>
+          </div>
+        <button (click)="postData(user.User_ID)" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Update User</button>
+      </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Update Event</h1>
+    <form *ngFor="let event of events">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input required minlength="3" [(ngModel)]="title" type="title" class="form-control" id="title" name="title" placeholder={{event.title}}>
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="desc" required [(ngModel)]="desc" class="form-control" id="desc" name="desc" placeholder={{event.desc}}>
+          </div>
+        <div class="mb-3">
+          <label for="venue" class="form-label">Venue</label>
+          <input type="venue" required minlength="8" [(ngModel)]="venue" class="form-control" id="venue" name="venue" placeholder={{event.venue}}>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="datetime-local" required [(ngModel)]="date" class="form-control" id="date" name="date" placeholder={{event.date}}>
+          </div>
+          <!-- <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="time" required [(ngModel)]="time" class="form-control" id="time" name="time" placeholder={{event.time}}>
+          </div> -->
+        <button (click)="postData(event.sno)" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Update Event</button>
+      </form>
+</div>

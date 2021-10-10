@@ -1,0 +1,64 @@
+<div class="container">
+    <br>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/event-dashboard">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/ticket-dashboard">Tickets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/TicketCat">Ticket Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/user-dashboard">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Bookings</a>
+        </li>
+        <li>
+          <a class="nav-link" (click) = "logout()" routerLink="/admin">Log Out</a>
+        </li>
+      </ul>
+      <div class="container">
+        <!-- <mat-grid-list cols="1" rowHeight="4:1"> -->
+          <br><br><h1>Dashboard</h1> 
+            <button type="button" class="btn btn-outline-primary" routerLink="/addUser">Add User</button><br><br><br>
+          <!-- <mat-grid-tile> -->
+            <h2 style="display: block; text-align: center;" >Users:</h2> 
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th>Sno.</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>
+                    {{user.User_ID}}
+                  </td>
+                  <td>
+                    {{user.Username}}
+                  </td>
+                  <td>
+                    {{user.Email}} 
+                  </td>
+                  <td style="text-align: center;">
+                    <button (click)="del(user.User_ID)" class="btn btn-danger" style="margin-right: 10px;">Delete</button>
+                    <button (click)="edit(user)" routerLink="/editUser" class="btn btn-info">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table><br><br><br>
+          <!-- </mat-grid-tile> -->
+        <!-- </mat-grid-list> -->
+      </div>
+      
+</div>
+

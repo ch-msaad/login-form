@@ -1,0 +1,77 @@
+<div class="container">
+    <br>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/event-dashboard">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ticket-dashboard">Tickets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/TicketCat">Ticket Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user-dashboard">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Bookings</a>
+      </li>
+      <li>
+        <a class="nav-link" (click) = "logout()" routerLink="/admin">Log Out</a>
+      </li>
+    </ul>
+    <!-- bar chart -->
+    <!-- <div class="container">
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <br><br><h1>Dashboard</h1> 
+          <h2>Overview:</h2> 
+          <div style="display: block; ">
+            <canvas baseChart 
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+        
+      </mat-grid-list>
+    </div>    -->
+    <!-- pie chart -->
+    <div class="container">
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <br><br><br><h1 style="background-color: lightskyblue; text-align: center;">Dashboard</h1> 
+          <h2 style="background-color: lightgreen">Overview:</h2> <br><br>
+          <mat-grid-tile>
+            <div>
+              <canvas baseChart style="height: 300px; width: 300px;" 
+              [data]="[this.totalEvents, this.totalTickets, this.totalUsers]" 
+              [labels]="pieChartLabels" 
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend">
+              </canvas>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div>
+              <canvas baseChart style="height: 600px; width: 600px;"
+                class="chart"
+                [colors]="chartColors"
+                [data]="[this.totalEvents, this.totalTickets, this.totalUsers]"
+                [labels]="polarAreaChartLabels"
+                [legend]="polarAreaLegend"
+                [chartType]="polarAreaChartType">
+              </canvas>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      
+<!-- </div> -->
+

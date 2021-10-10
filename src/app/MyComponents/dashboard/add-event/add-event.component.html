@@ -1,0 +1,35 @@
+<div class="container">
+  <br>
+  <app-nav></app-nav>
+</div>
+<div class="container">
+    <h1 class="my-5">Add Event</h1>
+    <form>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input required minlength="3" [(ngModel)]="title" type="title" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="desc" required [(ngModel)]="desc" class="form-control" id="desc" name="desc">
+          </div>
+        <div class="mb-3">
+          <label for="venue" class="form-label">Venue</label>
+          <input type="venue" required minlength="8" [(ngModel)]="venue" class="form-control" id="venue" name="venue">
+            <div *ngIf="error === true">
+              <div class="alert alert-danger" >
+                  Field is required.
+            </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="datetime-local" required [(ngModel)]="date" class="form-control" id="date" name="date">
+          </div>
+          <!-- <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="time" required [(ngModel)]="time" class="form-control" id="time" name="time">
+          </div> -->
+        <button (click)="postData()" type="submit" class="btn btn-primary" style="background:rgb(255, 69, 69); border-color: inherit;">Add Event</button>
+      </form>
+</div>

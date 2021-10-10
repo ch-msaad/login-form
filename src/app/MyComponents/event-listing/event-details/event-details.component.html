@@ -1,0 +1,27 @@
+<app-navbar></app-navbar> <br>
+<div class="container">
+    <h1 class="text-center mb-3">Event Booking App</h1>
+  <h2>Events Details</h2>
+  <div *ngIf="this.events==null; else elseBlock">No event details to display.</div> 
+   <ng-template #elseBlock>
+            <ul *ngFor="let event of events">
+              <div class="col" style="background-color: lightgreen; text-align: center;">{{event.title}}</div>
+              <div class="col"><b>Description:</b> {{event.desc}}</div>
+              <div class="col" style="background-color: lightblue;">
+                <ul>
+                  <b>Venue:</b> {{event.venue}}
+                </ul>
+                <ul>
+                  <b>Date: </b> {{event.date  | date:'dd/MM/yyyy'}}
+                </ul>
+                <ul>
+                  <b>Time: </b> {{event.date  | date:'hh:mm a'}}
+                </ul>
+              </div>
+                <!-- <li><b>Title: </b>{{event.title}} &nbsp; &nbsp; &nbsp; <b>Description:</b> {{event.desc}} &nbsp; &nbsp; &nbsp; 
+                <b>Venue:</b> {{event.venue}}</li> -->
+                <!-- <ul><b>Date: </b> {{event.date  | date:'dd/MM/yyyy'}}&nbsp; &nbsp; &nbsp;<b>Time: </b> {{event.date  | date:'hh:mm a'}}</ul> -->
+                    <br><app-ticket-listing [eventId]="event.sno"></app-ticket-listing>
+            </ul>                 
+    </ng-template>
+  </div>

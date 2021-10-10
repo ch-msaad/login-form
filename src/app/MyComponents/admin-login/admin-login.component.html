@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="my-5">Admin Login Page</h1>
+    <form>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" required minlength="3" [(ngModel)]="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" required minlength="8" [(ngModel)]="password" name="password" class="form-control" id="password">
+        </div>
+        <button (click)="login()" type="submit" class="btn btn-primary" style="background:brown; border-color: inherit;">Login</button>
+    </form>
+</div>

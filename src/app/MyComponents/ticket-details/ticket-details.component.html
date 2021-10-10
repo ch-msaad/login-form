@@ -1,0 +1,17 @@
+<app-navbar></app-navbar> <br>
+<div class="container"> <br><br>
+    <h2>Ticket Details</h2>
+    <ul *ngFor="let ticket of tickets">
+        <div class="card" style="width: 18rem;">
+            <img src="../../../assets/details.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Details</h5>
+                <ul><b>Event Title: </b>{{this.events[0]['title']}}</ul><br>
+                <ul><b>Category Name: </b>{{ticket.Category_Name}}</ul><br>
+                <ul><b>In Stock: </b>{{ticket.Quantity}} Tickets left</ul><br>
+                <ul><b>Price: </b>{{ticket.price}}</ul><br>
+                <ul><button type="button" class="btn btn-primary" (click)="buyProduct(ticket)">Add to Cart</button></ul>
+            </div>
+        </div><br>
+    </ul>
+</div>

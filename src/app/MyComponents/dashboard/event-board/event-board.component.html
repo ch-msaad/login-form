@@ -1,0 +1,77 @@
+<div class="container">
+    <br>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/event-dashboard">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ticket-dashboard">Tickets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/TicketCat">Ticket Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user-dashboard">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Bookings</a>
+      </li>
+      <li>
+        <a class="nav-link" (click) = "logout()" routerLink="/admin">Log Out</a>
+      </li>
+    </ul>      
+    <div class="container">
+        <!-- <mat-grid-list cols="1" rowHeight="4:1"> -->
+          <!-- <mat-grid-tile > -->
+            <br><br><h1 routerLink="/dashboard">Dashboard</h1> 
+            <button type="button" class="btn btn-outline-primary" routerLink="/addEvent">Add Event</button>
+            <br><br><br>
+            <h2 style="display: block; text-align: center;">Events:</h2> 
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Venue</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let event of events">
+                  <td>
+                    {{event.sno}}
+                  </td>
+                  <td>
+                    {{event.title}}
+                  </td>
+                  <td>
+                    {{event.desc}} 
+                  </td>
+                  <td>
+                    {{event.venue}}
+                  </td>
+                  <td>
+                    {{event.date  | date:'dd/MM/yyyy'}}
+                  </td>
+                  <td>
+                    {{event.date  | date:'hh:mm a'}}
+                  </td>
+                  <td style="text-align: center;">
+                    <button (click)="del(event.sno)" class="btn btn-danger" style="margin-right: 10px;">Delete</button>
+                    <button (click)="edit(event)" routerLink="/editEvent" class="btn btn-info" >Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table><br><br><br>
+          <!-- </mat-grid-tile> -->
+        <!-- </mat-grid-list> -->
+      </div>
+      
+</div>
+
